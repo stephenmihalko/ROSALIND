@@ -12,4 +12,4 @@ fi
 # a. Read file contents
 # b. Replace all T with U
 # c. Write output to file
-cat ${@} | sed 's/T/U/g' >> "translated_${@}"
+cat ${@} | tr 'T' 'U' >> "translated_${@}"
