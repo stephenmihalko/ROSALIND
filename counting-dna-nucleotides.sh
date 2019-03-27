@@ -18,4 +18,4 @@ fi
 # f. Remove whitespace at beginning of line
 # g. Isolate only numbers at beginning of lines
 # h. Nice formatting by replacing newlines with spaces
-cat ${@} | fold -w 1 | sort | uniq -c | sed 's/^\s*//g' | cut -f 1 -d ' ' | tr '\n' ' '
+cat ${@} | fold -w 1 | sort | uniq -c | awk '{print $1}' | tr '\n' ' '
