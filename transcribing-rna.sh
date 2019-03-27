@@ -8,3 +8,8 @@ then
 	echo "The file ${@} cannot be read."
 	exit 1
 fi
+
+# a. Read file contents
+# b. Replace all T with U
+# c. Write output to file
+cat ${@} | sed 's/T/U/g' >> "translated_${@}"
