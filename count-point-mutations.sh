@@ -9,4 +9,10 @@ then
 	exit 1
 fi
 
-# TODO: Write the algorithm
+# a. Use head and tail to get first and last lines from the file
+# b. Fold the lines to get one character per line
+# c. "sdiff -" tells it to take one "file" from STDIN
+# d. Use process substitution to pipe in the "second file"
+# e. Search for lines with either < or | to identify where differences exist
+# f. Count the grepped lines
+head -n1 ${@} | fold -w 1 | sdiff - <(tail -n1 ${@} | fold -w 1) | grep '[<|\|]' | wc -l
